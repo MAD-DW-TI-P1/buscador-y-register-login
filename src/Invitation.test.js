@@ -3,6 +3,6 @@ import Invitation from './Invitation';
 
 test('Invitación', () => {
   render(<Invitation />);
-  const linkElement = screen.getByText(/Invitación/i);
+  const linkElement = screen.getByText(/Ver más/i);
   expect(linkElement).toBeInTheDocument();
 });
