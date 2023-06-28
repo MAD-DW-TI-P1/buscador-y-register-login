@@ -5,6 +5,7 @@ import Invitations from './Invitations';
 import Login from './Login';
 import Register from './Register';
 import Signup from './Signup';
+import Admin from './Admin';
 
 const Home = () => <h1>Home</h1>
 
@@ -26,12 +27,15 @@ function App() {
       <Link to="/register">Register</Link>
       <br/> 
       <Link to="/signup">Sign up</Link>
+      <br/> 
+      <Link to="/admin">Admin</Link>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/invitations" element={<Invitations />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </div>
   );
