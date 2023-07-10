@@ -1,11 +1,11 @@
 import React from 'react';
-import Form from './Form';
+import RegisterForm from './RegisterLogin';
 
 function Register() {
   return (
     <>
       <h1>Register</h1>
-      <Form />
+      <RegisterForm />
     </>
     );
 }

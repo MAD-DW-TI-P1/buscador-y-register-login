@@ -35,13 +35,12 @@ const Form = () => {
         };
 
         function saveToken(result) {
-            var token = JSON.parse(result).token;
-            console.log(token);
-            localStorage.setItem('token', token);
-            // Ya meter un token: authToken
+            console.log(result)
+            //localStorage.setItem('token', token);
+            alert('Usuario creado')
         }
 
-        fetch("http://127.0.0.1:8001/api/login_check", requestOptions)
+        fetch("http://127.0.0.1:8000/front/register", requestOptions)
         .then(response => response.text())
         .then(result => saveToken(result))
         .catch(error => console.log('error', error));
@@ -49,7 +48,7 @@ const Form = () => {
 
     return (
         <Fragment>
-            <h1>Formulario</h1>
+            <h1>Formulario de Registro</h1>
             <form className="row" onSubmit={enviarDatos}>
                 <div className="form-group p-3">
                     <input type="text" placeholder="User" className="form-control" onChange={handleInputChange} name="user"></input>

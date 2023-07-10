@@ -14,10 +14,17 @@ function Admin() {
       redirect: 'follow'
     };
 
-    fetch("http://127.0.0.1:8001/api/test", requestOptions)
+    function showInfo(result) {
+      var info = JSON.parse(result)
+      console.log(info, result)
+      alert(info['info'])
+    }
+
+    fetch("http://127.0.0.1:8000/api/test", requestOptions)
       .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
+      .then(result => showInfo(result))
+      .catch(error => console.log('error', error)
+    );
   }
 
   return (

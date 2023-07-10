@@ -1,11 +1,11 @@
 import React from 'react';
-import Form from './Form';
+import FormLogin from './FormLogin';
 
 function Login() {
   return (
     <>
       <h1>Login</h1>
-      <Form />
+      <FormLogin />
     </>
     );
 }
