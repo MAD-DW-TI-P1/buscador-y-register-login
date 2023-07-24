@@ -1,4 +1,5 @@
 import React, {Fragment, useState} from 'react';
+import {urlLogin} from './Servicies/urls';
 
 const Form = () => {
     const [datos, setDatos] = useState({
@@ -40,7 +41,7 @@ const Form = () => {
             alert('Usuario creado')
         }
 
-        fetch("http://127.0.0.1:8000/front/register", requestOptions)
+        fetch(urlLogin+"/front/register", requestOptions)
         .then(response => response.text())
         .then(result => saveToken(result))
         .catch(error => console.log('error', error));
