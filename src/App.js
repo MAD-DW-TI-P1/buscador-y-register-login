@@ -7,6 +7,7 @@ import Register from './Register';
 import Signup from './Signup';
 import Admin from './Admin';
 import Inmersiva from './Inmersiva';
+import Contact from './Contact';
 
 const Home = () => <h1>Home</h1>
 
@@ -33,6 +34,8 @@ function App() {
         <Link to="/admin">Admin</Link>
         <br/> 
         <Link to="/inmersiva">Zona inmersiva</Link>
+        <br/>
+        <Link to="/contacto">Contacto</Link>
       </div>
       <div id="contenido">
         <Routes>
@@ -43,6 +46,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/inmersiva" element={<Inmersiva />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
     </div>

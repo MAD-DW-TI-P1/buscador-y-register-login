@@ -19,7 +19,7 @@
       <button type="button" class="btn btn-primary" onclick="moveUp()">Siguiente</button>
     </nav>
     <a-scene>
-      <a-camera id="myCamera" wasd-controls="acceleration: 5" position="0.5 0.6 1">
+      <a-camera id="myCamera" wasd-controls="acceleration: 5" position="0.5 0.7 1">
       </a-camera>
       <!--a-entity position="0.8 1.3 -6" camera wasd-controls look-controls
       animation="property:position; to:0.8 1.3 -6; dur: 10000"
@@ -71,10 +71,16 @@
 
     // INSERTAR: https://gomakethings.com/converting-a-string-into-markup-with-vanilla-js/
 
+    //<a-entity text="value:Camión; color:#FFFFFF; shader: msdf; font:Roboto-Medium-msdf/Roboto-Medium-msdf.json;" scale="15 15 15" position="6.7 1 -2"></a-entity>
+
+    //name =`<a-entity id="name${data[i].id}" text="value:á ${data[i].nombre}; color:black; shader: msdf; font:SourceSerif4-Italic-msdf" position="-0.8 1.6 -${i==0?0.8:i}"></a-entity>`
+
+    //name = `<a-text id="name${data[i].id}" value="á ${data[i].nombre}" position="-0.8 1.6 -${i==0?0.8:i}" color="black" width='1.2' height="auto" visible="${show}"></a-text>`;
+
     function printInvitations(data) {
       for (i in data) {
         if(i == 0) {show = "true"} else {show = "false"}
-        name = `<a-text id="name${data[i].id}" value="${data[i].name}" position="-0.8 1.6 -${i==0?0.8:i}" color="black" width='1.2' height="auto" visible="${show}"></a-text>`;
+        name =`<a-entity id="name${data[i].id}" text="value:${data[i].nombre}; shader: msdf; font:NotoSerif-Italic-VariableFont_wdth,wght-msdf.json; color:black" position="-0.8 1.6 -${i==0?0.8:i} color="black""></a-entity>`
         document.getElementsByTagName('a-scene')[0].append(stringToHTML(name));
         description = `<a-text id="description${data[i].id}" value="${data[i].groups[0].invitationgroup.nombre}" position="-0.8 1.5 -${i==0?0.8:i}" color="black" width='0.7' height="auto" visible="${show}"></a-text>`;
         document.getElementsByTagName('a-scene')[0].append(stringToHTML(description));

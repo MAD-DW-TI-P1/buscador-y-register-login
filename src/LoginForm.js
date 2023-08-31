@@ -17,12 +17,24 @@ const Form = () => {
         })
     }
 
+    const handelPasswordToggle = () => {
+
+        var inputPassword = document.querySelector('#password');
+        if (inputPassword.type === "text") {
+            inputPassword.type = "password";
+        } else {
+            inputPassword.type = "text";
+        }
+
+    }
+
     const enviarDatos = (event) => {
         event.preventDefault()
         console.log('enviando datos...' + datos.user + ' ' + datos.pass)
+
+        
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
-        //myHeaders.append("Cookie", "Authorization=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2ODA1Mjk0NjQsImV4cCI6MTY4MDUzMzA2NCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiY3Jpcy5tc2ZAZ21haWwuY29tIn0.rBvV96T2Y0tcPDpeybpQPVjHx7aY78wpPsnhlkIHKwTjgIWMCrHzWJkbqZATK2YenTN_dTAyKxYNYLN-5DB8BwyIei3nXfhgYJiWxc7M2lNq_gMib7hqoHRhk1uqcsWP_Ex9dfIqaWrQWKPo3fUd6Jlgu4QQJ-SlF6JZbTShpgEjf4fSOVrFmNc15bUwUxsctGigFrZ0YWTVYlEaDuFJj1bOtI47vbPRSLEHAsX88rdpCQOikrxEx545BRsmpoB9-YBxpuRAc7RyMVcEF08WY10h1VHSTsSvNps9PNImLMd95FZuRPpE5DL511WvlwhY4ytpyfXq5UQy9_5QyJGxhg; BEARER=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2ODA1Mjk0NjQsImV4cCI6MTY4MDUzMzA2NCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiY3Jpcy5tc2ZAZ21haWwuY29tIn0.rBvV96T2Y0tcPDpeybpQPVjHx7aY78wpPsnhlkIHKwTjgIWMCrHzWJkbqZATK2YenTN_dTAyKxYNYLN-5DB8BwyIei3nXfhgYJiWxc7M2lNq_gMib7hqoHRhk1uqcsWP_Ex9dfIqaWrQWKPo3fUd6Jlgu4QQJ-SlF6JZbTShpgEjf4fSOVrFmNc15bUwUxsctGigFrZ0YWTVYlEaDuFJj1bOtI47vbPRSLEHAsX88rdpCQOikrxEx545BRsmpoB9-YBxpuRAc7RyMVcEF08WY10h1VHSTsSvNps9PNImLMd95FZuRPpE5DL511WvlwhY4ytpyfXq5UQy9_5QyJGxhg");
 
         var raw = JSON.stringify({
             "username": datos.user,
@@ -54,12 +66,17 @@ const Form = () => {
     return (
         <Fragment>
             <h1>Formulario de Login</h1>
-            <form className="row" onSubmit={enviarDatos}>
+            <form className="row" onSubmit={enviarDatos} noValidate>
                 <div className="form-group p-3">
-                    <input type="text" placeholder="User" className="form-control" onChange={handleInputChange} name="user"></input>
+                    <label htmlFor="validationTooltip01" className="form-label">User</label>
+                    <input type="text" placeholder="Jorge" className="form-control" id="validationTooltip01" onChange={handleInputChange} name="user" required></input>
+                    <div className="valid-tooltip">
+                        Looks good!
+                    </div>
                 </div>
                 <div className="form-group p-3">
-                    <input type="text" placeholder="Password" className="form-control" onChange={handleInputChange} name="pass"></input>
+                    <input id="password" type="password" placeholder="Password" className="form-control" onChange={handleInputChange} name="pass" required></input>
+                    <i id="togglePassword" onClick={handelPasswordToggle}>View</i>
                 </div>
                 <div className="form-group p-3">
                     <button type="submit" className="btn btn-primary">Enviar</button>
