@@ -1,3 +1,3 @@
 export const urlApi = 'https://cristinamaser.com/api/invitations';
 export const urlImg = 'https://cristinamaser.com';
-export const urlLogin = 'http://127.0.0.1:8001';
+export const urlLogin = 'http://127.0.0.1:8002';
