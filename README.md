@@ -18,6 +18,8 @@
 | :--------------------------:|:---------------------:|
 | /                           |  Home  | 
 | /invitations                |  Listado de invitaciones con buscador y filtro por categorías        |
+| /login                |  Login        |
+| /register                |  Register        |
 
 # Referencias
 
